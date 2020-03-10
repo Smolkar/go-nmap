@@ -1,11 +1,11 @@
 package nmap
 
 import (
-	"fmt"
-	"os/exec"
 	"bytes"
-	"github.com/pkg/errors"
 	"encoding/xml"
+	"os/exec"
+
+	"github.com/pkg/errors"
 )
 
 type Nmap struct {
@@ -59,8 +59,8 @@ func (n *Nmap) Run() error {
 	n.Args = append(n.Args, "-oX")
 	n.Args = append(n.Args, "-")
 
-	cmd = exec.Command(n.SystemPath, n.Args ...)
-	fmt.Println(cmd.Args)
+	cmd = exec.Command(n.SystemPath, n.Args...)
+
 	cmd.Stdout = &outb
 	cmd.Stderr = &errs
 	err := cmd.Run()
